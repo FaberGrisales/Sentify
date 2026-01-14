@@ -15,7 +15,7 @@ services:
       - ./backend/app:/app/app
     networks:
       - sentify_network
-    restart: unlees-stopped
+    restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
       interval: 30s
