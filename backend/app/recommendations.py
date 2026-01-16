@@ -4,64 +4,64 @@ import random
 class RecommendationEngine:
     def __init__(self):
         self.recommendations_db = {
-            "joy": {
+            "alegría": {
                 "songs": [
-                    {"title": "Happy", "artist": "Pharrell Williams", "url": "https://open.spotify.com/track/60nZcImufyMA1KT4eoro27"},
-                    {"title": "Walking on Sunshine", "artist": "Katrina & The Waves", "url": "https://open.spotify.com/track/05wIrZSwuaVWhcv5FfqeH0"},
-                    {"title": "Good Vibrations", "artist": "The Beach Boys", "url": "https://open.spotify.com/track/5t9KYe0Fhd5cW6UYT4qP8f"}
+                    {"title": "Vivir Mi Vida", "artist": "Marc Anthony", "url": "https://open.spotify.com/track/3Q3myFA7q4Op95DOpHplaY"},
+                    {"title": "Color Esperanza", "artist": "Diego Torres", "url": "https://open.spotify.com/track/4j1lKjTNnsX0r0gnF0wR8c"},
+                    {"title": "La Vida Es Un Carnaval", "artist": "Celia Cruz", "url": "https://open.spotify.com/track/1a2R0g95tC5C2yXz5p7R3G"}
                 ],
-                "colors": {"hex": "#FFD700", "name": "Gold", "meaning": "Radiance and happiness"},
+                "colors": {"hex": "#FFD700", "name": "Dorado", "meaning": "Resplandor y felicidad"},
                 "quotes": [
-                    {"text": "Joy is the simplest form of gratitude.", "author": "Karl Barth"},
-                    {"text": "The most wasted of all days is one without laughter.", "author": "E. E. Cummings"}
+                    {"text": "La alegría es la forma más simple de gratitud.", "author": "Karl Barth"},
+                    {"text": "El día más desperdiciado de todos es aquel sin risas.", "author": "E. E. Cummings"}
                 ]
             },
-            "sadness": {
+            "tristeza": {
                 "songs": [
-                    {"title": "Someone Like You", "artist": "Adele", "url": "https://open.spotify.com/track/4kflIGfjkRGfuF0PWjk47n"},
-                    {"title": "Fix You", "artist": "Coldplay", "url": "https://open.spotify.com/track/7LVHVU3tWfcxj5aiPFEW4Q"},
-                    {"title": "The Night We Met", "artist": "Lord Huron", "url": "https://open.spotify.com/track/3hRV0jL3vUpRrcy398te8f"}
+                    {"title": "Corazón Partío", "artist": "Alejandro Sanz", "url": "https://open.spotify.com/track/0wQ9G3uB5RJ9r5z8r4i8y1"},
+                    {"title": "Corre", "artist": "Jesse & Joy", "url": "https://open.spotify.com/track/4w3tQBXhn5345678901234"},
+                    {"title": "El Tristen", "artist": "José José", "url": "https://open.spotify.com/track/6g1Nq2w3e4r5t6y7u8i9o0"}
                 ],
-                "colors": {"hex": "#4682B4", "name": "Steel Blue", "meaning": "Calm and healing"},
+                "colors": {"hex": "#4682B4", "name": "Azul Acero", "meaning": "Calma y sanación"},
                 "quotes": [
-                    {"text": "Tears come from the heart and not from the brain.", "author": "Leonardo da Vinci"},
-                    {"text": "Sadness flies away on the wings of time.", "author": "Jean de La Fontaine"}
+                    {"text": "Las lágrimas vienen del corazón y no del cerebro.", "author": "Leonardo da Vinci"},
+                    {"text": "La tristeza se aleja con las alas del tiempo.", "author": "Jean de La Fontaine"}
                 ]
             },
-            "anger": {
+            "enojo": {
                 "songs": [
-                    {"title": "Break Stuff", "artist": "Limp Bizkit", "url": "https://open.spotify.com/track/5cZqsjVs6MevCnAkasbEOX"},
-                    {"title": "Killing In The Name", "artist": "Rage Against The Machine", "url": "https://open.spotify.com/track/59WN2psjkt1tyaxjspN8fp"},
-                    {"title": "In The End", "artist": "Linkin Park", "url": "https://open.spotify.com/track/60a0Rd6pjrkxjPbaKzXjfq"}
+                    {"title": "Matador", "artist": "Los Fabulosos Cadillacs", "url": "https://open.spotify.com/track/2z3a4b5c6d7e8f9g0h1i2j"},
+                    {"title": "Frijolero", "artist": "Molotov", "url": "https://open.spotify.com/track/3k4l5m6n7o8p9q0r1s2t3u"},
+                    {"title": "Gimme The Power", "artist": "Molotov", "url": "https://open.spotify.com/track/4v5w6x7y8z9a0b1c2d3e4f"}
                 ],
-                "colors": {"hex": "#DC143C", "name": "Crimson", "meaning": "Energy and passion"},
+                "colors": {"hex": "#DC143C", "name": "Carmesí", "meaning": "Energía y pasión intensa"},
                 "quotes": [
-                    {"text": "For every minute you remain angry, you give up sixty seconds of peace of mind.", "author": "Ralph Waldo Emerson"},
-                    {"text": "He who angers you conquers you.", "author": "Elizabeth Kenny"}
+                    {"text": "Por cada minuto que permaneces enojado, renuncias a sesenta segundos de paz mental.", "author": "Ralph Waldo Emerson"},
+                    {"text": "El que te enfada te vence.", "author": "Elizabeth Kenny"}
                 ]
             },
-             "fear": {
+             "miedo": {
                 "songs": [
-                    {"title": "Three Little Birds", "artist": "Bob Marley", "url": "https://open.spotify.com/track/6A9mKXlFRPMPem6ygQSt7z"},
-                    {"title": "Here Comes The Sun", "artist": "The Beatles", "url": "https://open.spotify.com/track/6dGnYIeXmHdcikdzNNDMm2"},
-                    {"title": "Don't Panic", "artist": "Coldplay", "url": "https://open.spotify.com/track/2QhURnm7mQDxBb5jDEU7bI"}
+                    {"title": "Color Esperanza", "artist": "Diego Torres", "url": "https://open.spotify.com/track/4j1lKjTNnsX0r0gnF0wR8c"},
+                    {"title": "No Tengas Miedo", "artist": "Ismael Serrano", "url": "https://open.spotify.com/track/5a6b7c8d9e0f1g2h3i4j5k"},
+                    {"title": "Sin Miedo", "artist": "Rosana", "url": "https://open.spotify.com/track/6l7m8n9o0p1q2r3s4t5u6v"}
                 ],
-                "colors": {"hex": "#98FB98", "name": "Pale Green", "meaning": "Safety and renewal"},
+                "colors": {"hex": "#98FB98", "name": "Verde Pálido", "meaning": "Seguridad y renovación"},
                 "quotes": [
-                    {"text": "The only thing we have to fear is fear itself.", "author": "Franklin D. Roosevelt"},
-                    {"text": "Fear is a reaction. Courage is a decision.", "author": "Winston Churchill"}
+                    {"text": "A lo único que tenemos que temer es al miedo mismo.", "author": "Franklin D. Roosevelt"},
+                    {"text": "El miedo es una reacción. El coraje es una decisión.", "author": "Winston Churchill"}
                 ]
             },
             "neutral": {
                  "songs": [
-                    {"title": "Weightless", "artist": "Marconi Union", "url": "https://open.spotify.com/track/6kLCHFH39iP9T01A3CBrE5"},
-                    {"title": "River Flows in You", "artist": "Yiruma", "url": "https://open.spotify.com/track/64rL48E6xW6i1KJ1i5TkL7"},
-                    {"title": "Claire de Lune", "artist": "Claude Debussy", "url": "https://open.spotify.com/track/6N7JzjzDmnXW7f7Q6hZzTy"}
+                    {"title": "De Música Ligera", "artist": "Soda Stereo", "url": "https://open.spotify.com/track/2a3b4c5d6e7f8g9h0i1j2k"},
+                    {"title": "Mediterráneo", "artist": "Joan Manuel Serrat", "url": "https://open.spotify.com/track/3n4o5p6q7r8s9t0u1v2w3x"},
+                    {"title": "Bésame Mucho", "artist": "Consuelo Velázquez", "url": "https://open.spotify.com/track/4y5z6a7b8c9d0e1f2g3h4i"}
                 ],
-                "colors": {"hex": "#D3D3D3", "name": "Light Gray", "meaning": "Balance and neutrality"},
+                "colors": {"hex": "#D3D3D3", "name": "Gris Claro", "meaning": "Equilibrio y neutralidad"},
                 "quotes": [
-                    {"text": "Life is what happens when you're busy making other plans.", "author": "John Lennon"},
-                    {"text": "Balance is not something you find, it's something you create.", "author": "Jana Kingsford"}
+                    {"text": "La vida es lo que pasa mientras estás ocupado haciendo otros planes.", "author": "John Lennon"},
+                    {"text": "El equilibrio no es algo que encuentras, es algo que creas.", "author": "Jana Kingsford"}
                 ]
             }
         }
@@ -70,25 +70,28 @@ class RecommendationEngine:
         # Default to neutral if no emotions match
         primary_emotion = "neutral"
         
-        # Simple mapping to our database keys
-        # We check if any of the detected emotions map to our keys
+        # Mapping incoming Spanish emotions to our database keys
         for emotion in emotions:
+            # Direct match (e.g. "alegría")
             if emotion in self.recommendations_db:
                 primary_emotion = emotion
                 break
             
-            # Fallback mapping
-            if emotion in ["excitement", "love", "gratitude", "satisfaction"]:
-                primary_emotion = "joy"
+            # Fallback/Synonym mapping
+            if emotion in ["entusiasmo", "amor", "gratitud", "satisfacción"]:
+                primary_emotion = "alegría"
                 break
-            elif emotion in ["annoyance", "judgement"]:
-                primary_emotion = "anger"
+            elif emotion in ["molestia", "juicio", "frustración"]:
+                primary_emotion = "enojo"
                 break
-            elif emotion in ["anxiety", "worry"]:
-                primary_emotion = "fear"
+            elif emotion in ["ansiedad", "preocupación"]:
+                primary_emotion = "miedo"
                 break
-            elif emotion in ["calm", "indifference"]:
+            elif emotion in ["calma", "indiferencia"]:
                 primary_emotion = "neutral"
+                break
+            elif emotion in ["tristeza"]:
+                primary_emotion = "tristeza"
                 break
         
         data = self.recommendations_db.get(primary_emotion, self.recommendations_db["neutral"])

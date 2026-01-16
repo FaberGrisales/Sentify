@@ -37,7 +37,11 @@ def test_api():
             data = response.json()
             print("Response:", data)
             if "recommendation" in data and "song" in data["recommendation"]:
-                 print("✅ Positive sentiment & recommendation test passed")
+                 # Check for Spanish values
+                 if data["sentiment"] in ["Positivo", "Neutral", "Negativo"]:
+                     print("✅ Positive sentiment (Spanish) & recommendation test passed")
+                 else:
+                     print(f"⚠️ Warning: Sentiment '{data['sentiment']}' might not be in Spanish")
             else:
                  print("❌ Response structure missing recommendation")
         else:

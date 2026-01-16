@@ -81,17 +81,17 @@ class SentimentAnalyzer():
             
             # Determinar sentimiento, intensidad y emociones
             if stars <= 2:
-                sentiment = "Negative"
-                emotions = ["sadness", "frustration"] if stars == 1 else ["annoyance"]
-                intensity = "High" if stars == 1 else "Medium"
+                sentiment = "Negativo"
+                emotions = ["tristeza", "frustración"] if stars == 1 else ["molestia"]
+                intensity = "Alta" if stars == 1 else "Media"
             elif stars == 3:
                 sentiment = "Neutral"
-                emotions = ["indifference", "calm"]
-                intensity = "Low"
+                emotions = ["indiferencia", "calma"]
+                intensity = "Baja"
             else:
-                sentiment = "Positive"
-                emotions = ["joy", "excitement"] if stars == 5 else ["satisfaction"]
-                intensity = "High" if stars == 5 else "Medium"
+                sentiment = "Positivo"
+                emotions = ["alegría", "entusiasmo"] if stars == 5 else ["satisfacción"]
+                intensity = "Alta" if stars == 5 else "Media"
 
             # Construir dict de scores crudos para debug
             raw_scores = {res['label']: res['score'] for res in results}
@@ -113,6 +113,6 @@ class SentimentAnalyzer():
                 score=0.0,
                 confidence=0.0,
                 emotions=["error"],
-                intensity="Low",
+                intensity="Baja",
                 raw_scores={}
             )

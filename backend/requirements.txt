@@ -26,3 +26,6 @@ numpy
 
 # Integración con Spotify (opcional, descomenta si lo necesitas)
 spotipy
+
+# Testing
+httpx

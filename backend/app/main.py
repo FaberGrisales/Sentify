@@ -9,8 +9,8 @@ from app.sentiment_analyzer import SentimentAnalyzer, SentimentResult
 from app.recommendations import RecommendationEngine
 
 app = FastAPI(
-    title="Sentify and Color Recommendation API",
-    description="API for sentiment analysis and color recommendation services.",
+    title="API de Sentify y Recomendación de Colores",
+    description="API para análisis de sentimientos y servicios de recomendación de colores.",
     version="1.0.0"
 )
 
@@ -30,9 +30,9 @@ analyzer = SentimentAnalyzer()
 recommender = RecommendationEngine()
 
 class SentifyRequest(BaseModel):
-    text: str = Field(..., max_length=500, min_length=3, example="Text to analyze sentiment.") # Allowed min_length to be smaller for testing
-    language: Optional[str] = Field('es', description="Language code (e.g., 'en' for English, 'es' for Spanish)", example="es")
-    include_song: Optional[bool] = Field(True, description="Whether to include a song recommendation based on sentiment")
+    text: str = Field(..., max_length=500, min_length=3, example="Texto para analizar sentimiento.") 
+    language: Optional[str] = Field('es', description="Código de idioma (ej. 'es' para Español, 'en' para Inglés)", example="es")
+    include_song: Optional[bool] = Field(True, description="Incluir recomendación de canción basada en sentimiento")
     
 
     class Config:
@@ -129,15 +129,15 @@ async def get_supported_emotions():
     """
     return {
         "emotions": [
-            {"name": "joy", "category": "positive"},
-            {"name": "excitement", "category": "positive"},
-            {"name": "gratitude", "category": "positive"},
-            {"name": "love", "category": "positive"},
-            {"name": "calm", "category": "neutral"},
-            {"name": "thoughtful", "category": "neutral"},
-            {"name": "sadness", "category": "negative"},
-            {"name": "anxiety", "category": "negative"},
-            {"name": "anger", "category": "negative"},
-            {"name": "fear", "category": "negative"}
+            {"name": "alegría", "category": "positivo"},
+            {"name": "entusiasmo", "category": "positivo"},
+            {"name": "gratitud", "category": "positivo"},
+            {"name": "amor", "category": "positivo"},
+            {"name": "calma", "category": "neutral"},
+            {"name": "reflexivo", "category": "neutral"},
+            {"name": "tristeza", "category": "negativo"},
+            {"name": "ansiedad", "category": "negativo"},
+            {"name": "enojo", "category": "negativo"},
+            {"name": "miedo", "category": "negativo"}
         ]
     }
