@@ -1,5 +1,5 @@
 services:
-  
+
   # Backend Service
 
   backend:
@@ -12,16 +12,15 @@ services:
     environment:
       - PYTHONUNBUFFERED=1
     volumes:
-      - ./backend/app:/app/app
+      - ./backend:/app
     networks:
       - sentify_network
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      test: [ "CMD", "curl", "-f", "http://localhost:8000/health" ]
       interval: 30s
       timeout: 10s
       retries: 3
-
   # Frontend Service
 
 networks:

@@ -28,4 +28,5 @@ numpy
 spotipy
 
 # Testing
+pytest
 httpx
