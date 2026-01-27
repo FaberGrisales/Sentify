@@ -22,6 +22,21 @@ services:
       timeout: 10s
       retries: 3
   # Frontend Service
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend_sentify
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    networks:
+      - sentify_network
+    depends_on:
+      - backend
+    restart: unless-stopped
 
 networks:
   sentify_network:

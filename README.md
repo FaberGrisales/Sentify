@@ -52,7 +52,7 @@ docker-compose up --build
 ```
 
 3. **Access the application**
-- Frontend: http://localhost:3000
+- Frontend: http://localhost:5173
 - Backend API: http://localhost:8000
 - API Docs: http://localhost:8000/docs
 
@@ -82,8 +82,7 @@ docker-compose up --build
 ### Frontend
 - **React**: UI library
 - **Vite**: Build tool and dev server
-- **Axios**: HTTP client
-- **TailwindCSS**: Utility-first CSS (optional)
+- **Vanilla CSS**: Custom styling
 
 ### DevOps
 - **Docker**: Containerization
@@ -91,10 +90,10 @@ docker-compose up --build
 
 ## 📝 Project Roadmap
 
-- [ ] Basic sentiment analysis
+- [x] Basic sentiment analysis
 - [x] Docker containerization
-- [ ] REST API
-- [ ] React frontend
+- [x] REST API
+- [x] React frontend
 - [ ] Spotify API integration
 - [ ] User authentication
 - [ ] Mood history tracking
