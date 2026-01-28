@@ -60,26 +60,19 @@ class SentimentAnalyzer():
         Analiza el sentimiento del texto proporcionado.
         """
         try:
-            # El pipeline retorna una lista de lista de dicts cuando top_k=None
-            # [[{'label': '5 stars', 'score': 0.8}, ...]]
             results = self.analyzer(text)[0]
             
-            # Ordenar resultados por score descendente
             results.sort(key=lambda x: x['score'], reverse=True)
             top_result = results[0]
             
-            # Mapeo de puntajes a lógica de negocio
-            # El modelo retorna '1 star', '2 stars', etc.
             label = top_result['label']
             score = top_result['score']
             
-            # Extraer número de estrellas
             try:
                 stars = int(label.split()[0])
             except:
-                stars = 3  # Fallback a neutral
+                stars = 3
             
-            # Determinar sentimiento, intensidad y emociones
             if stars <= 2:
                 sentiment = "Negativo"
                 emotions = ["tristeza", "frustración"] if stars == 1 else ["molestia"]

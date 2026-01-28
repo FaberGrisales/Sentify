@@ -25,7 +25,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Global instances
 analyzer = SentimentAnalyzer()
 recommender = RecommendationEngine()
 
@@ -65,7 +64,7 @@ class SentifyResponse(BaseModel):
     confidence: float
     emotions: List[str]
     intensity: str
-    recommendation: Optional[Dict] = None # Renamed from recomendation and made generic for now to fit the structure
+    recommendation: Optional[Dict] = None 
     timestamp: datetime
 
 
@@ -100,20 +99,17 @@ async def analyze_sentiment(request: SentifyRequest):
     Analyze text sentiment and provide recommendations
     """
     try:
-        # 1. Analyze Sentiment
         result: SentimentResult = analyzer.analyze_text(request.text)
         
-        # 2. Get Recommendations
         recommendations = recommender.get_recommendations(result.emotions)
         
-        # 3. Construct Response
         return SentifyResponse(
             sentiment=result.sentiment,
             score=result.score,
             confidence=result.confidence,
             emotions=result.emotions,
             intensity=result.intensity,
-            recommendation=recommendations, # This contains song, color, quote
+            recommendation=recommendations, 
             timestamp=datetime.utcnow()
         )
 

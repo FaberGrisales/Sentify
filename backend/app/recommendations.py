@@ -67,17 +67,13 @@ class RecommendationEngine:
         }
     
     def get_recommendations(self, emotions: List[str]) -> Dict:
-        # Default to neutral if no emotions match
         primary_emotion = "neutral"
         
-        # Mapping incoming Spanish emotions to our database keys
         for emotion in emotions:
-            # Direct match (e.g. "alegría")
             if emotion in self.recommendations_db:
                 primary_emotion = emotion
                 break
             
-            # Fallback/Synonym mapping
             if emotion in ["entusiasmo", "amor", "gratitud", "satisfacción"]:
                 primary_emotion = "alegría"
                 break
