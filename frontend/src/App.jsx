@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 
+// Main Function
 function App() {
   const [text, setText] = useState('')
   const [result, setResult] = useState(null)
