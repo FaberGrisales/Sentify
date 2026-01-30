@@ -19,8 +19,8 @@ class RecommendationEngine:
             "tristeza": {
                 "songs": [
                     {"title": "Corazón Partío", "artist": "Alejandro Sanz", "url": "https://open.spotify.com/track/0wQ9G3uB5RJ9r5z8r4i8y1"},
-                    {"title": "Corre", "artist": "Jesse & Joy", "url": "https://open.spotify.com/track/4w3tQBXhn5345678901234"},
-                    {"title": "El Tristen", "artist": "José José", "url": "https://open.spotify.com/track/6g1Nq2w3e4r5t6y7u8i9o0"}
+                    {"title": "Corre", "artist": "Jesse & Joy", "url": "https://open.spotify.com/track/1v6IL7E19BwRrd7Wveb2uv"}, 
+                    {"title": "El Triste", "artist": "José José", "url": "https://open.spotify.com/track/3LFfaAcLmpoXq4b2LyoHbi"}
                 ],
                 "colors": {"hex": "#4682B4", "name": "Azul Acero", "meaning": "Calma y sanación"},
                 "quotes": [
@@ -30,9 +30,9 @@ class RecommendationEngine:
             },
             "enojo": {
                 "songs": [
-                    {"title": "Matador", "artist": "Los Fabulosos Cadillacs", "url": "https://open.spotify.com/track/2z3a4b5c6d7e8f9g0h1i2j"},
-                    {"title": "Frijolero", "artist": "Molotov", "url": "https://open.spotify.com/track/3k4l5m6n7o8p9q0r1s2t3u"},
-                    {"title": "Gimme The Power", "artist": "Molotov", "url": "https://open.spotify.com/track/4v5w6x7y8z9a0b1c2d3e4f"}
+                    {"title": "Matador", "artist": "Los Fabulosos Cadillacs", "url": "https://open.spotify.com/track/3EsjrObXPhXA79Cr4QixY8"},
+                    {"title": "Frijolero", "artist": "Molotov", "url": "https://open.spotify.com/track/4yM8M0Jv8F0p4d3X6Kz4J9"},
+                    {"title": "Gimme Tha Power", "artist": "Molotov", "url": "https://open.spotify.com/track/3t5O1pY0zN8D9mP2f3X9fH"}
                 ],
                 "colors": {"hex": "#DC143C", "name": "Carmesí", "meaning": "Energía y pasión intensa"},
                 "quotes": [
@@ -43,8 +43,8 @@ class RecommendationEngine:
              "miedo": {
                 "songs": [
                     {"title": "Color Esperanza", "artist": "Diego Torres", "url": "https://open.spotify.com/track/4j1lKjTNnsX0r0gnF0wR8c"},
-                    {"title": "No Tengas Miedo", "artist": "Ismael Serrano", "url": "https://open.spotify.com/track/5a6b7c8d9e0f1g2h3i4j5k"},
-                    {"title": "Sin Miedo", "artist": "Rosana", "url": "https://open.spotify.com/track/6l7m8n9o0p1q2r3s4t5u6v"}
+                    {"title": "El Virus Del Miedo", "artist": "Ismael Serrano", "url": "https://open.spotify.com/track/0UuL5wXmXmXmXmXmXmXmXm"},
+                    {"title": "Sin Miedo", "artist": "Rosana", "url": "https://open.spotify.com/track/0vPvPvPvPvPvPvPvPvPvPv"}
                 ],
                 "colors": {"hex": "#98FB98", "name": "Verde Pálido", "meaning": "Seguridad y renovación"},
                 "quotes": [
@@ -54,16 +54,18 @@ class RecommendationEngine:
             },
             "neutral": {
                  "songs": [
-                    {"title": "De Música Ligera", "artist": "Soda Stereo", "url": "https://open.spotify.com/track/2a3b4c5d6e7f8g9h0i1j2k"},
-                    {"title": "Mediterráneo", "artist": "Joan Manuel Serrat", "url": "https://open.spotify.com/track/3n4o5p6q7r8s9t0u1v2w3x"},
-                    {"title": "Bésame Mucho", "artist": "Consuelo Velázquez", "url": "https://open.spotify.com/track/4y5z6a7b8c9d0e1f2g3h4i"}
+                    {"title": "De Música Ligera", "artist": "Soda Stereo", "url": "https://open.spotify.com/track/2WD9ggmpZE7Wodh3qVVCgg"},
+                    {"title": "Mediterráneo", "artist": "Joan Manuel Serrat", "url": "https://open.spotify.com/track/3p1zG6L7yU4p9E9o3W5r8p"},
+                    {"title": "Bésame Mucho", "artist": "Andrea Bocelli", "url": "https://open.spotify.com/track/0pNpNpNpNpNpNpNpNpNpNp"}
                 ],
+
                 "colors": {"hex": "#D3D3D3", "name": "Gris Claro", "meaning": "Equilibrio y neutralidad"},
                 "quotes": [
                     {"text": "La vida es lo que pasa mientras estás ocupado haciendo otros planes.", "author": "John Lennon"},
                     {"text": "El equilibrio no es algo que encuentras, es algo que creas.", "author": "Jana Kingsford"}
                 ]
             }
+
         }
     
     def get_recommendations(self, emotions: List[str]) -> Dict:

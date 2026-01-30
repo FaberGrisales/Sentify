@@ -137,8 +137,9 @@ function App() {
                     rel="noreferrer"
                     className="song-link"
                   >
-                    Escuchar en YouTube
+                    Escuchar en Spotify
                   </a>
+
                 </div>
               )}
 

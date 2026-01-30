@@ -69,22 +69,48 @@ class SentimentAnalyzer():
             score = top_result['score']
             
             try:
-                stars = int(label.split()[0])
-            except:
+                # Handle labels like '1 star', '5 stars', or just '1', '5'
+                label_lower = label.lower()
+                if 'star' in label_lower:
+                    stars = int(label_lower.split()[0])
+                else:
+                    # Fallback for just digits or other formats
+                    import re
+                    match = re.search(r'\d', label)
+                    stars = int(match.group()) if match else 3
+            except Exception as e:
+                logger.warning(f"Error parsing star label '{label}': {e}")
                 stars = 3
             
-            if stars <= 2:
+            # Safeguard: If the confidence is low and there are strongly negative words, 
+            # override to negative. This handles cases like "Odio a mi trabajo".
+            negative_keywords = ["odio", "pésimo", "basura", "horrible", "malísimo", "asco", "terrible"]
+            text_lower = text.lower()
+            if any(word in text_lower for word in negative_keywords) and stars > 2:
+                logger.info(f"Safeguard triggered: Overriding {stars} stars to 1 due to negative keywords.")
+                stars = 1
+
+            if stars == 1:
+                sentiment = "Muy Negativo"
+                emotions = ["odio", "rabia", "frustración extrema", "decepción"]
+                intensity = "Extrema"
+            elif stars == 2:
                 sentiment = "Negativo"
-                emotions = ["tristeza", "frustración"] if stars == 1 else ["molestia"]
-                intensity = "Alta" if stars == 1 else "Media"
+                emotions = ["molestia", "desagrado", "decepción", "irritación"]
+                intensity = "Alta"
             elif stars == 3:
                 sentiment = "Neutral"
-                emotions = ["indiferencia", "calma"]
-                intensity = "Baja"
-            else:
+                emotions = ["indiferencia", "calma", "duda", "ambivalencia"]
+                intensity = "Media"
+            elif stars == 4:
                 sentiment = "Positivo"
-                emotions = ["alegría", "entusiasmo"] if stars == 5 else ["satisfacción"]
-                intensity = "Alta" if stars == 5 else "Media"
+                emotions = ["satisfacción", "agrado", "confianza", "optimismo"]
+                intensity = "Alta"
+            else:  # 5 stars
+                sentiment = "Muy Positivo"
+                emotions = ["alegría", "entusiasmo", "felicidad", "excelente"]
+                intensity = "Extrema"
+
 
             # Construir dict de scores crudos para debug
             raw_scores = {res['label']: res['score'] for res in results}
